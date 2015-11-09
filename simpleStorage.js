@@ -409,7 +409,7 @@
             return _save();
         },
 
-        get: function(key) {
+        get: function(key, retValue) {
             if (!_storage) {
                 return false;
             }
@@ -420,6 +420,9 @@
                     return _storage[key];
                 }
             }
+            // if we have not returned yet, then return the value passed in as default return value
+            // if nothing was passed in, then this will return undefined
+            return retValue;
         },
 
         deleteKey: function(key) {
